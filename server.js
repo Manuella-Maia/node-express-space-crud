@@ -1,18 +1,24 @@
 import express from 'express'
-import { openDb } from './src/database/db.js'
+import {creatTables} from './src/database/tables.js'
+
 
 const app = express()
 
 app.use(express.json())
 
-openDb()
-
 const PORT = 3000 
 
-app.post('/',(req,res) => {
+creatTables().then(() => {
+    
+    app.use('/missions', )
 
-})
 
-app.listen(PORT, () => {
-    console.log("SERVIDOR LIGADO")
+
+
+
+    app.listen(PORT, () => {
+        console.log("### SERVIDOR LIGADO ###")
+    })
+}).catch(erro => {
+    console.log('Erro crítico ao iniciar o banco:', erro)
 })

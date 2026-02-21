@@ -8,4 +8,3 @@ export async function openDb () {
     driver: sqlite3.Database
   })
 }
-
