@@ -4,15 +4,14 @@
 [NODEMON__BADGE]: https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD
 [NODE__BADGE]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
 
-<h1 align="center" style="font-weight: bold;">Space Kanban API 💻</h1>
+<h1 align="center" style="font-weight: bold;">Missions API 💻</h1>
 
-<p align="center">
   ![express][EXPRESS__BADGE]
   ![javascript][JAVASCRIPT__BADGE]
   ![sqlite][SQLITE__BADGE]
   ![nodemon][NODEMON__BADGE]
   ![node][NODE__BADGE]
-</p>
+
 
 <details open="open">
 <summary>Sumário</summary>
@@ -48,7 +47,9 @@ Para clonar o repositório, execute o comando abaixo no seu terminal:
 ```bash
 git clone [https://github.com/seu-usuario/nome-do-seu-repositorio.git](https://github.com/seu-usuario/nome-do-seu-repositorio.git)
 
+
 <h3>Execução</h3>
+
 
 Após clonar, entre na pasta do projeto e execute os comandos:
 
@@ -61,6 +62,7 @@ npm install
 # Iniciar o servidor com nodemon (ambiente de desenvolvimento)
 npm run dev
 
+
 <h2 id="routes">📍 Endpoints da API</h2>
 
 Here you can list the main routes of your API, and what are their expected request bodies.
@@ -69,6 +71,13 @@ Abaixo estão listadas as rotas principais e o que é esperado em cada uma.
 | Rota                | Descrição                                           |
 |----------------------|-----------------------------------------------------|
 | <kbd>POST /missions</kbd> | Cria uma nova missão espacial no sistema. Ver detalhes |
+
+
+| route               | descrição                                         
+|----------------------|-----------------------------------------------------
+| <kbd>POST /missions</kbd>     | Cria uma nova missão espacial no sistema(#post-mission-detail)
+
+
 
 <h3 id="post-mission-detail">POST /missions</h3>
 
