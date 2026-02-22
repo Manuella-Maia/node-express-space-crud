@@ -42,3 +42,56 @@ Regras de Negócio: Faz sentido uma missão ter 0 tripulantes? Ou uma duração 
 [NODEMON__BADGE]: https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD
 
 [NODE__BADGE]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
+
+
+
+
+- [🚀 Iniciando](#started)
+  - [Pré-requisitos](#prerequisites)
+  - [Clonagem](#cloning)
+  - [Execução](#starting)
+- [📍 Endpoints da API](#routes)
+  - [POST /missions](#post-mission-detail)
+  - [GET /missions](#get-missions)
+  - [GET /missions/:id](#get-mission-id)
+  
+</details>
+
+<p align="center">
+  <b>Criação de um CRUD completo e API RESTful com Express para controlar missões espaciais, com persistência em banco de dados SQLite
+  </b>
+</p>
+
+<h2 id="started">🚀 Iniciando</h2>
+
+Siga estas instruções para configurar e rodar o projeto localmente.
+
+### Pré-requisitos
+
+Antes de começar, você precisará ter instalado em sua máquina:
+
+- [Node.js](https://nodejs.org/) (Versão LTS recomendada)
+- [Git](https://git-scm.com/)
+
+<h3 id="cloning">Clonagem</h3>
+
+Para clonar o repositório, execute o comando abaixo no seu terminal:
+
+```bash
+git clone https://github.com/seu-usuario/nome-do-seu-repositorio.git
+```
+
+<h3 id="starting">Execução</h3>
+
+Após clonar, entre na pasta do projeto e execute os comandos:
+
+```bash
+# Entrar na pasta
+cd nome-do-seu-repositorio
+
+# Instalar as dependências
+npm install
+
+# Iniciar o servidor com nodemon (ambiente de desenvolvimento)
+npm run dev
+``````

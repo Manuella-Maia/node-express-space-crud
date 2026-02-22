@@ -21,4 +21,34 @@ export async function insertMissions(dados) {
     }
 }
 
+export async function selectMissions() {
+    try {
+        const db = await openDb()
+
+        const listMissions = await db.all('SELECT * FROM missions LIMIT 100')
+
+        if(listMissions){
+            return {dados:listMissions}
+        }else{
+            return {erro:'Falha no select de dados !'}
+        }
+    } catch (erro) {
+        console.error("Falha na estrutura:", erro.message)
+        throw erro
+    }
+}
     
+export async function selectMissionsById(id) {
+    try {
+        const db = await openDb()
+
+        const listMissionsById = await db.get(`SELECT * FROM missions WHERE id = ?`, [id])
+
+        if(listMissionsById){
+            return listMissionsById
+        }
+    } catch (erro) {
+        console.erro('Falha na estrutura:', erro.message)
+        throw erro
+    }
+}

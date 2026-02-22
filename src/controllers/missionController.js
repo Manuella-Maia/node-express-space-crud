@@ -1,7 +1,6 @@
-import {insertMissions} from '../models/missionModel.js'
+import {insertMissions, selectMissions, selectMissionsById} from '../models/missionModel.js'
 
 export async function createMission(req, res) {
-    
     try {
         const {nome, crew, spacecraft, destinations, status, durations} = req.body
 
@@ -40,5 +39,44 @@ export async function createMission(req, res) {
     }
 }
 
+export async function getMissions(req, res) {
+    try {
+        const resultado = await selectMissions()
+
+        if(resultado){
+            res.status(200).json({
+                mensagem:'Listagem de missions:',
+                dados: resultado.dados
+            })
+        }else{
+            res.status(500).json({erro: resultado.erro})
+        }
+    } catch (erro) {
+        console.error('Erro na listagem de dados no db:',erro.message)
+        res.status(500).json({erro:'Erro interno no servidor ao listar missões.'})
+    }
+}
     
+export async function getMissionsById(req, res) {
+    try {
+        const idRecebido = req.params.id
+
+        const resultado = await selectMissionsById(idRecebido)
+
+        if(!resultado){
+            return res.status(404).json({
+                mensagem: `Missão com ID ${idRecebido} não encontrada.`
+            })
+        }
+
+        res.status(200).json({
+            mensagem:'Mission retornada:',
+            dados: resultado
+        })
+
+    } catch (erro) {
+        console.error('Erro na listagem de dados no db:',erro.message)
+        res.status(500).json({erro:'Erro interno no servidor ao listar missão.'})
+    }
+}
     

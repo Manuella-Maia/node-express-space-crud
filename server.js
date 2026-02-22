@@ -18,3 +18,4 @@ creatTables().then(() => {
 }).catch(erro => {
     console.log('Erro crítico ao iniciar o banco:', erro)
 })
+
