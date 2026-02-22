@@ -1,19 +1,24 @@
-[JAVASCRIPT__BADGE]: [https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript](https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript)
-[EXPRESS__BADGE]: [https://img.shields.io/badge/express-005CFE?style=for-the-badge&logo=express](https://img.shields.io/badge/express-005CFE?style=for-the-badge&logo=express)
-[SQLITE__BADGE]: [https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
-[NODEMON__BADGE]: [https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
-[NODE__BADGE]: [https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+[JAVASCRIPT__BADGE]: https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript
+
+[EXPRESS__BADGE]: https://img.shields.io/badge/express-005CFE?style=for-the-badge&logo=express
+
+[SQLITE__BADGE]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
+
+[NODEMON__BADGE]: https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD
+
+[NODE__BADGE]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
 
 <h1 align="center" style="font-weight: bold;">Missions API 💻</h1>
 
 <p align="center">
+
   ![express][EXPRESS__BADGE]
   ![javascript][JAVASCRIPT__BADGE]
   ![sqlite][SQLITE__BADGE]
   ![nodemon][NODEMON__BADGE]
   ![node][NODE__BADGE]
-</p>
 
+</p>
 <details open="open">
 <summary>Sumário</summary>
   
