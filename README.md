@@ -71,7 +71,7 @@ Abaixo estão listadas as rotas principais e o que é esperado em cada uma.
 | Rota                | Descrição                                           |
 |----------------------|-----------------------------------------------------|
 | <kbd>POST /missions</kbd> | Cria uma nova missão espacial no sistema |
-| <kbd>GET /missions</kbd> | LLista todas as missões (Limite 100) |
+| <kbd>GET /missions</kbd> | Lista todas as missões (Limite 100) |
 | <kbd>GET /missions/:id</kbd> | Busca uma missão específica pelo ID |
 
 
@@ -134,6 +134,9 @@ Tripulação não numérica: {"erro": "O tipo armazenado em crew e direfente de 
 Número inválido: {"erro": "Numero de tripulantes invalido !"}
 
 Dados incompletos: {"erro": "Dados invalidos ou ausentes !"}
+<<<<<<< HEAD
 
 
 <p align="center">Feito com foco em Node.js e Express durante o desafio #7DaysOfCode da Alura! 🚀</p>
+=======
+>>>>>>> c75fb563e62d18c148e6a1a797e48aa44bfd47a6
