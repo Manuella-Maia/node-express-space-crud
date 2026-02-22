@@ -1,6 +1,6 @@
 import express from 'express'
 import {creatTables} from './src/database/tables.js'
-
+import {definedRoutes} from './src/routes/missionRoutes.js'// arquivo com as rotas 
 
 const app = express()
 
@@ -10,11 +10,7 @@ const PORT = 3000
 
 creatTables().then(() => {
     
-    app.use('/missions', )
-
-
-
-
+    app.use('/missions', definedRoutes)// acessa o arquivo de rotas para saber o que fazer
 
     app.listen(PORT, () => {
         console.log("### SERVIDOR LIGADO ###")
