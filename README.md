@@ -1,17 +1,18 @@
-[JAVASCRIPT__BADGE]: https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript
-[EXPRESS__BADGE]: https://img.shields.io/badge/express-005CFE?style=for-the-badge&logo=express
-[SQLITE__BADGE]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
-[NODEMON__BADGE]: https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD
-[NODE__BADGE]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
+[JAVASCRIPT__BADGE]: [https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript](https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript)
+[EXPRESS__BADGE]: [https://img.shields.io/badge/express-005CFE?style=for-the-badge&logo=express](https://img.shields.io/badge/express-005CFE?style=for-the-badge&logo=express)
+[SQLITE__BADGE]: [https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
+[NODEMON__BADGE]: [https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
+[NODE__BADGE]: [https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
 <h1 align="center" style="font-weight: bold;">Missions API 💻</h1>
 
+<p align="center">
   ![express][EXPRESS__BADGE]
   ![javascript][JAVASCRIPT__BADGE]
   ![sqlite][SQLITE__BADGE]
   ![nodemon][NODEMON__BADGE]
   ![node][NODE__BADGE]
-
+</p>
 
 <details open="open">
 <summary>Sumário</summary>
@@ -33,26 +34,26 @@
 
 Siga estas instruções para configurar e rodar o projeto localmente.
 
-<h3>Pré-requisitos</h3>
+### Pré-requisitos
 
 Antes de começar, você precisará ter instalado em sua máquina:
 
 - [Node.js](https://nodejs.org/) (Versão LTS recomendada)
 - [Git](https://git-scm.com/)
 
-<h3>Clonagem</h3>
+<h3 id="cloning">Clonagem</h3>
 
 Para clonar o repositório, execute o comando abaixo no seu terminal:
 
 ```bash
-git clone [https://github.com/seu-usuario/nome-do-seu-repositorio.git](https://github.com/seu-usuario/nome-do-seu-repositorio.git)
+git clone https://github.com/seu-usuario/nome-do-seu-repositorio.git
+```
 
-
-<h3>Execução</h3>
-
+<h3 id="starting">Execução</h3>
 
 Após clonar, entre na pasta do projeto e execute os comandos:
 
+```bash
 # Entrar na pasta
 cd nome-do-seu-repositorio
 
@@ -61,6 +62,7 @@ npm install
 
 # Iniciar o servidor com nodemon (ambiente de desenvolvimento)
 npm run dev
+``````
 
 
 <h2 id="routes">📍 Endpoints da API</h2>
@@ -76,7 +78,6 @@ Abaixo estão listadas as rotas principais e o que é esperado em cada uma.
 | route               | descrição                                         
 |----------------------|-----------------------------------------------------
 | <kbd>POST /missions</kbd>     | Cria uma nova missão espacial no sistema(#post-mission-detail)
-
 
 
 <h3 id="post-mission-detail">POST /missions</h3>
@@ -100,31 +101,14 @@ Abaixo estão listadas as rotas principais e o que é esperado em cada uma.
   "dados": 1
 }
 ```
+**RESPONSES (Erros de Validação)**
 
-**RESPONSE (erro)**
-```json
-{
-  "erro": "O nome esta vazio !"
-}
-```
+Exemplos de retornos caso os dados enviados estejam incorretos:
 
-**RESPONSE (erro)**
-```json
-{
-  "erro": "O tipo armazenado em crew e direfente de number !"
-}
-```
+Nome ausente: {"erro": "O nome esta vazio !"}
 
-**RESPONSE (erro)**
-```json
-{
-  "erro": "Numero de tripulantes invalido !"
-}
-```
+Tripulação não numérica: {"erro": "O tipo armazenado em crew e direfente de number !"}
 
-**RESPONSE (erro)**
-```json
-{
-  "erro": "Dados invalidos ou ausentes !"
-}
-```
+Número inválido: {"erro": "Numero de tripulantes invalido !"}
+
+Dados incompletos: {"erro": "Dados invalidos ou ausentes !"}
