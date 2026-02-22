@@ -32,7 +32,7 @@ export async function createMission(req, res) {
                 dados: resultado.id
             })
         }else{
-            res.status(500).json({erro:resultado.erro || 'Erro desconhecido'})
+            res.status(404).json({erro:resultado.erro || 'Erro desconhecido'})
         }
     } catch (erro) {
         console.error('Erro na inserção de dados no db:', erro.message)
@@ -49,7 +49,7 @@ export async function getMissions(req, res) {
                 dados: resultado.dados
             })
         }else{
-            res.status(500).json({erro: resultado.erro})
+            res.status(404).json({erro: resultado.erro})
         }
     } catch (erro) {
         console.error('Erro na listagem de dados no db:',erro.message)

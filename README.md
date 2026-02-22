@@ -57,7 +57,7 @@ Durante o desenvolvimento, apliquei conceitos fundamentais de engenharia de soft
 
 <h2 id="lessons">💡 Lições Aprendidas e Desafios</h2>
 
-Nesta jornada de 7 dias (e nos estudos intensos de hoje), superei alguns obstáculos que ampliaram minha visão sobre o desenvolvimento:
+Nesta jornada de aprendizado, superei alguns obstáculos que ampliaram minha visão sobre o desenvolvimento:
 
 1.  **Ordem de Parâmetros importa**: Aprendi que no Express a ordem `(req, res)` é sagrada. Trocar os nomes ou a posição pode fazer com que funções como `.status()` não sejam reconhecidas.
 2.  **O perigo do req.body undefined**: Entendi a importância do middleware `app.use(express.json())`. Sem ele, o Express não "traduz" os dados enviados pelo Postman, resultando em erros de desestruturação.
@@ -134,9 +134,6 @@ Tripulação não numérica: {"erro": "O tipo armazenado em crew e direfente de 
 Número inválido: {"erro": "Numero de tripulantes invalido !"}
 
 Dados incompletos: {"erro": "Dados invalidos ou ausentes !"}
-<<<<<<< HEAD
 
 
 <p align="center">Feito com foco em Node.js e Express durante o desafio #7DaysOfCode da Alura! 🚀</p>
-=======
->>>>>>> c75fb563e62d18c148e6a1a797e48aa44bfd47a6
