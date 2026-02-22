@@ -1,0 +1,121 @@
+[JAVASCRIPT__BADGE]: https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript
+[EXPRESS__BADGE]: https://img.shields.io/badge/express-005CFE?style=for-the-badge&logo=express
+[SQLITE__BADGE]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
+[NODEMON__BADGE]: https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD
+[NODE__BADGE]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
+
+<h1 align="center" style="font-weight: bold;">Space Kanban API 💻</h1>
+
+<p align="center">
+  ![express][EXPRESS__BADGE]
+  ![javascript][JAVASCRIPT__BADGE]
+  ![sqlite][SQLITE__BADGE]
+  ![nodemon][NODEMON__BADGE]
+  ![node][NODE__BADGE]
+</p>
+
+<details open="open">
+<summary>Sumário</summary>
+  
+- [🚀 Iniciando](#started)
+  - [Pré-requisitos](#prerequisites)
+  - [Clonagem](#cloning)
+  - [Execução](#starting)
+- [📍 Endpoints da API](#routes)
+  - [POST /missions](#post-mission-detail)
+  
+</details>
+
+<p align="center">
+  <b>API para gerenciamento de missões espaciais, permitindo cadastrar e organizar dados com persistência em banco de dados SQLite.</b>
+</p>
+
+<h2 id="started">🚀 Iniciando</h2>
+
+Siga estas instruções para configurar e rodar o projeto localmente.
+
+<h3>Pré-requisitos</h3>
+
+Antes de começar, você precisará ter instalado em sua máquina:
+
+- [Node.js](https://nodejs.org/) (Versão LTS recomendada)
+- [Git](https://git-scm.com/)
+
+<h3>Clonagem</h3>
+
+Para clonar o repositório, execute o comando abaixo no seu terminal:
+
+```bash
+git clone [https://github.com/seu-usuario/nome-do-seu-repositorio.git](https://github.com/seu-usuario/nome-do-seu-repositorio.git)
+
+<h3>Execução</h3>
+
+Após clonar, entre na pasta do projeto e execute os comandos:
+
+# Entrar na pasta
+cd nome-do-seu-repositorio
+
+# Instalar as dependências
+npm install
+
+# Iniciar o servidor com nodemon (ambiente de desenvolvimento)
+npm run dev
+
+<h2 id="routes">📍 Endpoints da API</h2>
+
+Here you can list the main routes of your API, and what are their expected request bodies.
+Abaixo estão listadas as rotas principais e o que é esperado em cada uma.
+​
+| Rota                | Descrição                                           |
+|----------------------|-----------------------------------------------------|
+| <kbd>POST /missions</kbd> | Cria uma nova missão espacial no sistema. Ver detalhes |
+
+<h3 id="post-mission-detail">POST /missions</h3>
+
+**REQUEST**
+```json
+{
+  "nome": "Marte Alpha",
+  "crew": 4,
+  "spacecraft": "Starship",
+  "destinations": "Marte",
+  "status": "Em Planejamento",
+  "durations": "24 meses"
+}
+```
+
+**RESPONSE**
+```json
+{
+  "mensagem": "Dados salvos no banco sqlite",
+  "dados": 1
+}
+```
+
+**RESPONSE (erro)**
+```json
+{
+  "erro": "O nome esta vazio !"
+}
+```
+
+**RESPONSE (erro)**
+```json
+{
+  "erro": "O tipo armazenado em crew e direfente de number !"
+}
+```
+
+**RESPONSE (erro)**
+```json
+{
+  "erro": "Numero de tripulantes invalido !"
+}
+```
+
+**RESPONSE (erro)**
+```json
+{
+  "erro": "Dados invalidos ou ausentes !"
+}
+```
