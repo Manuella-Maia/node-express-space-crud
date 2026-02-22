@@ -73,12 +73,7 @@ Abaixo estão listadas as rotas principais e o que é esperado em cada uma.
 | Rota                | Descrição                                           |
 |----------------------|-----------------------------------------------------|
 | <kbd>POST /missions</kbd> | Cria uma nova missão espacial no sistema. Ver detalhes |
-
-
-| route               | descrição                                         
-|----------------------|-----------------------------------------------------
-| <kbd>POST /missions</kbd>     | Cria uma nova missão espacial no sistema(#post-mission-detail)
-
+(#post-mission-detail)
 
 <h3 id="post-mission-detail">POST /missions</h3>
 
