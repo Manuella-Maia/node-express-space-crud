@@ -52,3 +52,22 @@ export async function selectMissionsById(id) {
         throw erro
     }
 }
+
+export async function updateMission(dados,id) {
+    try {
+        const {nome, crew, spacecraft, destinations, status, durations} = dados
+
+        const db = await openDb()
+
+        const missionUpdate = await db.run(`UPDATE missions 
+            SET nome = ? , crew = ?, spacecraft = ? , destinations = ?, status = ?, durations = ? 
+            WHERE id = ? `,[nome, crew, spacecraft, destinations, status, durations, id])
+
+            if(missionUpdate){
+                return missionUpdate.changes
+            }
+    } catch (erro) {
+        console.erro('Falha na estrutura de update:', erro.message)
+        throw erro
+    }
+}

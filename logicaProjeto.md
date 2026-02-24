@@ -25,6 +25,12 @@ missionController.js pede para o missionModel.js salvar no banco de dados
 
 
 express.router() -> vai permitir a modularização das rotas. 
+.get no banco de dados é mais expesifico. cria um objeto e pode devolver undefind se naõ encontrar. mais eficiente pois para de buscar assim que atende a condição passada como o id
+
+run. permite executar a insercção, deleção e atualização de forma eficente e retorna metadados da opeção que vc acabou de executar:
+changes: Um número que indica quantas linhas foram afetadas pelo seu comando (no caso de um UPDATE por ID, deve ser 1 se funcionou ou 0 se o ID não foi encontrado).
+
+lastID: O número do último ID inserido (muito usado no INSERT, mas geralmente volta como o último ID da tabela no UPDATE).
 
 Campos Obrigatórios: O campo nome está presente? Ele é uma string vazia?
 
