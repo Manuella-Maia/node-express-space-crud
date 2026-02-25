@@ -1,4 +1,4 @@
-import {insertMissions, selectMissions, selectMissionsById, updateMission} from '../models/missionModel.js'
+import {insertMissions, selectMissions, selectMissionsById, updateMission, deleteMission} from '../models/missionModel.js'
 
 export async function createMission(req, res) {
     try {
@@ -124,5 +124,22 @@ export async function putMission(req, res) {
     } catch (erro) {
         console.error('Erro no update de dados no db:',erro.message)
         res.status(500).json({erro:'Erro interno no servidor ao atualizar missão.'})
+    }
+}
+
+export async function missionDelete(req, res) {
+    try {
+
+        const idRecebido = req.params.id
+
+        const resultado = await deleteMission(idRecebido)
+
+        if(resultado == 0 || !resultado){
+            return res.status(404).json({erro:'Mission não encontrada ! Id não existe no db'})
+        }
+        res.status(200).json({mensage:'Mission deletada com sucessso !'})
+    } catch (erro) {
+        console.error('Erro na deleção de dados no db:',erro.message)
+        res.status(500).json({erro:'Erro interno no servidor ao deletar missão.'})
     }
 }

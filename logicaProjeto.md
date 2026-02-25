@@ -38,6 +38,10 @@ Tipos de Dados: O campo crew (tripulação) é realmente um número ou enviaram 
 
 Regras de Negócio: Faz sentido uma missão ter 0 tripulantes? Ou uma duração negativa?
 
+implementar arquivos com funçoes de validações :
+if (isNaN(idRecebido)) { // validação do id  
+    return res.status(400).json({ erro: 'O ID enviado não é um número válido!' });
+}
 
 [JAVASCRIPT__BADGE]: https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript
 

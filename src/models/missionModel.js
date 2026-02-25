@@ -64,10 +64,25 @@ export async function updateMission(dados,id) {
             WHERE id = ? `,[nome, crew, spacecraft, destinations, status, durations, id])
 
             if(missionUpdate){
-                return missionUpdate.changes
+                return missionUpdate.changes 
             }
     } catch (erro) {
-        console.erro('Falha na estrutura de update:', erro.message)
+        console.error('Falha na estrutura de update:', erro.message)
+        throw erro
+    }
+}
+
+export async function deleteMission(id) {
+    try {
+        const db = await openDb()
+
+        const missionDeleted = await db.run('DELETE FROM missions WHERE id = ?',[id])
+
+        if(missionDeleted){
+            return missionDeleted.changes
+        }
+    } catch (erro) {
+        console.error('Falha na estrutura de delete:', erro.message)
         throw erro
     }
 }
