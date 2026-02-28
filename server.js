@@ -1,8 +1,11 @@
 import express from 'express'
+import cors from 'cors'
 import {creatTables} from './src/database/tables.js'
 import {definedRoutes} from './src/routes/missionRoutes.js'// arquivo com as rotas 
 
 const app = express()
+
+app.use(cors())
 
 app.use(express.json())
 
