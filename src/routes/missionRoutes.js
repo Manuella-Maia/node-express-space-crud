@@ -1,10 +1,9 @@
 import express from 'express';
 import { createMission, getMissions, getMissionsById, putMission, missionDelete} from '../controllers/missionController.js'
+
 const router = express.Router();
 
-
-
-router.post('/', createMission) // referencia a função que esta dentro do arquivo
+router.post('/', createMission) 
 
 router.get('/', getMissions)
 

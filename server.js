@@ -9,6 +9,9 @@ app.use(cors())
 
 app.use(express.json())
 
+// Serve the frontend static files from the public folder
+app.use(express.static('public'))
+
 const PORT = 3000 
 
 creatTables().then(() => {

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="./css/styleList.css">
+    <title>Lista de Missões</title>
+</head>
+<body>
+    <nav class="menu">
+        <a href="index.html">Cadastrar</a>
+        <a href="list.html">Ver Missões</a>
+    </nav>
+
+    <div class="container">
+        <h1>Missões Cadastradas</h1>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Trip.</th>
+                        <th>Espaçonave</th>
+                        <th>Status</th>
+                        <th>Duração</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="missionsBody">
+                    <tr>
+                        <td colspan="6" style="text-align:center; padding: 20px;">Carregando...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="edit-panel hidden" id="editPanel">
+            <h2>Editar Missão</h2>
+            <form id="editForm">
+                <div class="form-group">
+                    <label for="editNome">Nome</label>
+                    <input type="text" id="editNome" required>
+                </div>
+                <div class="form-group">
+                    <label for="editCrew">Tripulação</label>
+                    <input type="number" id="editCrew" required>
+                </div>
+                <div class="form-group">
+                    <label for="editSpacecraft">Espaçonave</label>
+                    <input type="text" id="editSpacecraft" required>
+                </div>
+                <div class="form-group">
+                    <label for="editDestinations">Destinos</label>
+                    <textarea id="editDestinations" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="editStatus">Status</label>
+                    <select id="editStatus" required>
+                        <option value="">Selecione um status</option>
+                        <option value="planejada">Planejada</option>
+                        <option value="em andamento">Em Andamento</option>
+                        <option value="concluída">Concluída</option>
+                        <option value="cancelada">Cancelada</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editDurations">Duração</label>
+                    <input type="text" id="editDurations" placeholder="Ex: 10 dias" required>
+                </div>
+                <div class="actions">
+                    <button class="button-small edit" type="submit">Salvar</button>
+                    <button class="button-small" type="button" id="cancelEdit">Cancelar</button>
+                </div>
+                <div class="info" id="editInfo"></div>
+            </form>
+        </div>
+    </div>
+
+    <script type = "module" src="js/api.js"></script>
+    <script type = "module" src="js/ui.js"></script>
+    <script type = "module" src="js/main.js"></script>
+</body>
+</html>

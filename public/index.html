@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Cadastro de Missões</title>
+</head>
+<body>
+    <nav class="menu">
+        <a href="index.html">Cadastrar</a>
+        <a href="list.html">Ver Missões</a>
+    </nav>
+
+    <div class="container">
+        <h1>Cadastro de Missões</h1>
+        <form id="missionForm">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="crew">Tripulação:</label>
+                <input type="number" id="crew" name="crew" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="spacecraft">Espaçonave:</label>
+                <input type="text" id="spacecraft" name="spacecraft" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="destinations">Destinos:</label>
+                <textarea id="destinations" name="destinations" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="">Selecione um status</option>
+                    <option value="planejada">Planejada</option>
+                    <option value="em andamento">Em Andamento</option>
+                    <option value="concluída">Concluída</option>
+                    <option value="cancelada">Cancelada</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="durations">Duração:</label>
+                <input type="text" id="durations" name="durations" placeholder="Ex: 10 dias" required>
+            </div>
+            
+            <button type="submit">Cadastrar Missão</button>
+        </form>
+        <div id="infoMessage"></div>
+    </div>
+    <script type = "module" src="js/api.js"></script>
+    <script type = "module" src="js/ui.js"></script>
+    <script type = "module" src="js/main.js"></script>
+</body>
+</html>

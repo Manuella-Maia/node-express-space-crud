@@ -1,5 +1,7 @@
 import {insertMissions, selectMissions, selectMissionsById, updateMission, deleteMission} from '../models/missionModel.js'
 
+// implementar services 
+
 export async function createMission(req, res) {
     try {
         const {nome, crew, spacecraft, destinations, status, durations} = req.body
