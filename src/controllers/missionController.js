@@ -75,7 +75,7 @@ export async function missionDelete(req, res) {
         const missionApagada = await deletarMissaoId(id);
 
         res.status(200).json({
-            mensagem: `A tarefa "${missionApagada.nome}" foi removida.`,
+            mensagem: `A missão"${missionApagada.nome}" foi removida.`,
             dados: missionApagada
         });
 

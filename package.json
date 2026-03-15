@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "node tests/integration/",
+    "test": "node tests/integration/test-delete-mission.js",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },

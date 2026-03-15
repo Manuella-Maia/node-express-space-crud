@@ -77,6 +77,6 @@ export async function deletarMissaoId(id) {
          throw new Error('A Missão não foi deletada corretamente !');
     };
 
-    return missionDeleted;
+    return missionById;
 };
 
