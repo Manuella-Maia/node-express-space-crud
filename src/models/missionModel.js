@@ -1,88 +1,80 @@
-import {openDb} from '../config/db.js'
+import {openDb} from '../config/db.js';
 
 export async function insertMissions(dados) {
     try {
-        const {nome, crew, spacecraft, destinations, status, durations} = dados
+        const {nome, crew, spacecraft, destinations, status, durations} = dados;
         
-        const db = await openDb()// direfença entre exec e run olhar ! run permite devolver lados da ultima linha criada 
+        const db = await openDb();
 
         const resultado = await db.run(`INSERT INTO missions (nome, crew, spacecraft, destinations, status, durations)
-            VALUES(?, ?, ?, ?, ?, ?)`,
-        [nome, crew, spacecraft, destinations, status, durations])
+            VALUES(?, ?, ?, ?, ?, ?)`, [nome, crew, spacecraft, destinations, status, durations]
+        );
 
-       if(resultado){
-         return {id:resultado.lastID}
-       }else{
-        return {erro:'Falha no salvamento de dados no db'}
-       }
-    } catch (erro) {
-        console.error("Falha na estrutura/DDL:", erro.message)
-        throw erro
+         return {id:resultado.lastID};
+       
+    } catch (error) {
+        console.error("Falha na estrutura create:", error.message)
+        throw error;
     }
 }
 
 export async function selectMissions() {
     try {
-        const db = await openDb()
+        const db = await openDb();
 
-        const listMissions = await db.all('SELECT * FROM missions LIMIT 100')
-
-        if(listMissions){
-            return {dados:listMissions}
-        }else{
-            return {erro:'Falha no select de dados !'}
-        }
-    } catch (erro) {
-        console.error("Falha na estrutura:", erro.message)
-        throw erro
+        const listMissions = await db.all('SELECT * FROM missions');
+    
+        return {dados:listMissions};
+        
+    } catch (error) {
+        console.error("Falha na estrutura select:", error.message)
+        throw error;
     }
 }
     
 export async function selectMissionsById(id) {
     try {
-        const db = await openDb()
+        const db = await openDb();
 
-        const listMissionsById = await db.get(`SELECT * FROM missions WHERE id = ?`, [id])
+        const listMissionsById = await db.get(`SELECT * FROM missions WHERE id = ?`, [id]);
 
-        if(listMissionsById){
-            return listMissionsById
-        }
-    } catch (erro) {
-        console.erro('Falha na estrutura:', erro.message)
-        throw erro
-    }
-}
+        return listMissionsById;
+        
+    } catch (error) {
+        console.erro('Falha na estrutura selectbyid:', error.message)
+        throw error;
+    };
+};
 
 export async function updateMission(dados,id) {
     try {
         const {nome, crew, spacecraft, destinations, status, durations} = dados
 
-        const db = await openDb()
+        const db = await openDb();
 
         const missionUpdate = await db.run(`UPDATE missions 
             SET nome = ? , crew = ?, spacecraft = ? , destinations = ?, status = ?, durations = ? 
-            WHERE id = ? `,[nome, crew, spacecraft, destinations, status, durations, id])
+            WHERE id = ? `,[nome, crew, spacecraft, destinations, status, durations, id]
+        );
 
-            if(missionUpdate){
-                return missionUpdate.changes 
-            }
-    } catch (erro) {
-        console.error('Falha na estrutura de update:', erro.message)
-        throw erro
-    }
-}
+        return missionUpdate.changes;
+            
+    } catch (error) {
+        console.error('Falha na estrutura de update:', error.message)
+        throw error;
+    };
+};
 
 export async function deleteMission(id) {
     try {
-        const db = await openDb()
+        const db = await openDb();
 
         const missionDeleted = await db.run('DELETE FROM missions WHERE id = ?',[id])
 
-        if(missionDeleted){
-            return missionDeleted.changes
-        }
-    } catch (erro) {
-        console.error('Falha na estrutura de delete:', erro.message)
-        throw erro
-    }
-}
+        return missionDeleted.changes
+        
+    } catch (error) {
+        console.error('Falha na estrutura delete:', error.message)
+        throw error;
+    };
+};

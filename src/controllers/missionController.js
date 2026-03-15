@@ -1,45 +1,17 @@
-import {insertMissions, selectMissions, selectMissionsById, updateMission, deleteMission} from '../models/missionModel.js'
-import {cadastrarMissao} from "../services/validation.js"
-
-// implementar services 
+import {cadastrarMissao, litarMissoes, litarMissaoId,atualizarMission, deletarMissaoId } from "../services/validation.js";
 
 export async function createMission(req, res) {
     try {
-        // const {nome, crew, spacecraft, destinations, status, durations} = req.body
 
         const dados = req.body;
 
         const missionCreated = await cadastrarMissao(dados);
 
-        // if(!nome){
-        //     return res.status(400).json({erro:'O nome esta vazio !'})
-        // }
-
-        // const typeCrew = typeof crew
-
-        // if(typeCrew !== "number"){
-        //     return res.status(400).json({erro: 'O tipo armazenado em crew e direfente de number !'})
-        // }
-
-        // if(crew <= 0){
-        //     return res.status(400).json({erro: 'Numero de tripulantes invalido !'})
-        // }
-
-        // if(!nome || !crew || !spacecraft || !destinations || !status || !durations){
-        //     return res.status(400).json({erro: 'Dados invalidos ou ausentes !'})
-        // }
-        // const resultado = await insertMissions(nome, crew, spacecraft, destinations, status, durations)
-
-        // const resultado = await insertMissions(dados)
-
-        // if(resultado && resultado.id){
-            res.status(201).json({
-                mensagem:'Dados salvos no banco sqlite',
-                dados: missionCreated.id
-            });
-        // }else{
-        //     res.status(404).json({erro:resultado.erro || 'Erro desconhecido'})
-        // }
+        res.status(201).json({
+            mensagem:'Dados salvos no banco sqlite',
+            dados: missionCreated.id
+         });
+       
     }catch(error) {
         return res.status(400).json({error: error.message});
     };
@@ -47,105 +19,67 @@ export async function createMission(req, res) {
 
 export async function getMissions(req, res) {
     try {
-        const resultado = await selectMissions()
 
-        if(resultado){
-            res.status(200).json({
-                mensagem:'Listagem de missions:',
-                dados: resultado.dados
-            })
-        }else{
-            res.status(404).json({erro: resultado.erro})
-        }
-    } catch (erro) {
-        console.error('Erro na listagem de dados no db:',erro.message)
-        res.status(500).json({erro:'Erro interno no servidor ao listar missões.'})
-    }
-}
+        const missions = await litarMissoes();
+
+        res.status(200).json({
+            mensagem:'Listagem de missions:',
+            dados: missions.dados
+        });
+        
+    }catch (error) {
+        return res.status(400).json({error: error.message});
+    };
+};
     
 export async function getMissionsById(req, res) {
     try {
-        const idRecebido = req.params.id
 
-        const resultado = await selectMissionsById(idRecebido)
+        const id = req.params.id;
 
-        if(!resultado){
-            return res.status(404).json({
-                mensagem: `Missão com ID ${idRecebido} não encontrada.`
-            })
-        }
+        const mission = await litarMissaoId(id);
 
         res.status(200).json({
             mensagem:'Mission retornada:',
-            dados: resultado
-        })
+            dados: mission
+        });
 
-    } catch (erro) {
-        console.error('Erro na listagem de dados no db:',erro.message)
-        res.status(500).json({erro:'Erro interno no servidor ao listar missão.'})
-    }
-}
+    } catch (error) {
+         return res.status(400).json({error: error.message});
+    };
+};
 
 export async function putMission(req, res) {
     try {
-        const {nome, crew, spacecraft, destinations, status, durations} = req.body
 
-        if(!nome){
-            return res.status(400).json({erro:'O nome esta vazio !'})
-        }
+        const dados = req.body;
+        const id = req.params.id;
 
-        const typeCrew = typeof crew
-
-        if(typeCrew !== "number"){
-            return res.status(400).json({erro: 'O tipo armazenado em crew e direfente de number !'})
-        }
-
-        if(crew <= 0){
-            return res.status(400).json({erro: 'Numero de tripulantes invalido !'})
-        }
-
-        if(!nome || !crew || !spacecraft || !destinations || !status || !durations){
-            return res.status(400).json({erro: 'Dados invalidos ou ausentes !'})
-        }
-
-        const dados = req.body
-        const idRecebido = req.params.id
-
-        const resultadoUpdate = await updateMission(dados,idRecebido)
-
-        if(resultadoUpdate == 0 || !resultadoUpdate){
-            return res.status(404).json({erro: 'Missions não encontrada ! Id não existe no bd'})
-        }
-
-        const resultadoGetUpdate = await selectMissionsById(idRecebido)
-
-        if(!resultadoGetUpdate){
-             return res.status(404).json({erro:'Missions não encontrada !'})
-        }
+        const missionUpdate = await atualizarMission(dados, id);
 
         res.status(200).json({
-            mensagem:'Mission atualizada com sucesso:',
-            dados: resultadoGetUpdate
-        })
-    } catch (erro) {
-        console.error('Erro no update de dados no db:',erro.message)
-        res.status(500).json({erro:'Erro interno no servidor ao atualizar missão.'})
-    }
-}
+            mensagem: 'Dados atualizados com sucesso !',
+            dados: missionUpdate 
+        });
+
+    }catch (error) {
+        return res.status(400).json({error: error.message});
+    };
+};
 
 export async function missionDelete(req, res) {
     try {
 
-        const idRecebido = req.params.id
+        const id = req.params.id;
 
-        const resultado = await deleteMission(idRecebido)
+        const missionApagada = await deletarMissaoId(id);
 
-        if(resultado == 0 || !resultado){
-            return res.status(404).json({erro:'Mission não encontrada ! Id não existe no db'})
-        }
-        res.status(200).json({mensage:'Mission deletada com sucessso !'})
-    } catch (erro) {
-        console.error('Erro na deleção de dados no db:',erro.message)
-        res.status(500).json({erro:'Erro interno no servidor ao deletar missão.'})
-    }
-}
+        res.status(200).json({
+            mensagem: `A tarefa "${missionApagada.nome}" foi removida.`,
+            dados: missionApagada
+        });
+
+    } catch(error) {
+         return res.status(400).json({error: error.message});
+    };
+};
