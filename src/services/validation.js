@@ -32,10 +32,6 @@ export async function litarMissoes() {
 
     const listedMissions = await selectMissions();
 
-    if(listedMissions.length == 0){
-        throw new Error('O banco de dados está vazio !');
-    };
-
     return listedMissions;
 };
 

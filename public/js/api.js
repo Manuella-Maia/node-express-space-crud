@@ -30,7 +30,7 @@ export async function criarMissao(dadosMissao) {
 
     } catch (erro) {
         console.error('Erro na requisição POST:',erro.message)
-        return {erro:true, menssage:erro.message}
+        return {erro:true, message:erro.message}
     }
 }
 

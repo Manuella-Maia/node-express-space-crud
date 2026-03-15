@@ -7,7 +7,8 @@
         
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+            background-image: radial-gradient( circle farthest-corner at 17.6% 50.7%,  rgba(25,0,184,1) 0%, rgba(0,0,0,1) 90% );
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -109,4 +110,14 @@
         
         button:active {
             transform: translateY(0);
+        }
+
+        .sucesso {
+            color: #28a745; 
+            font-weight: bold;
+        }
+
+        .erro {
+           color: #dc3545; 
+           font-weight: bold;
         }
