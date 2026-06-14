@@ -1,22 +1,31 @@
+[HTML5__BADGE]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+
+[CSS3__BADGE]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
+
 [JAVASCRIPT__BADGE]: https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript
 
+[NODEJS__BADGE]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+
 [EXPRESS__BADGE]: https://img.shields.io/badge/express-005CFE?style=for-the-badge&logo=express
+
+[JEST__BADGE]: https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white
 
 [SQLITE__BADGE]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
 
 [NODEMON__BADGE]: https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD
 
-[NODE__BADGE]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
-
 <h1 align="center" style="font-weight: bold;">Missions API 💻</h1>
 
 <p align="center">
 
-  ![express][EXPRESS__BADGE]
-  ![javascript][JAVASCRIPT__BADGE]
-  ![sqlite][SQLITE__BADGE]
-  ![nodemon][NODEMON__BADGE]
-  ![node][NODE__BADGE]
+  ![HTML5][HTML5__BADGE]
+  ![CSS3][CSS3__BADGE]
+  ![JavaScript][JAVASCRIPT__BADGE]
+  ![Node.js][NODEJS__BADGE]
+  ![Express][EXPRESS__BADGE]
+  ![Jest][JEST__BADGE]
+  ![SQLite][SQLITE__BADGE]
+  ![Nodemon][NODEMON__BADGE]
 
 </p>
 <details open="open">
@@ -47,6 +56,7 @@ Para a construção deste projeto, utilizei as seguintes tecnologias:
 * **Node.js**: Ambiente de execução para rodar o Javascript no servidor.
 * **Express**: Framework minimalista para gerenciar rotas e middlewares.
 * **SQLite**: Banco de dados relacional leve que armazena os dados em um arquivo local.
+* **Jest**: framework para testes unitários do modelo de negocio.
 * **Nodemon**: Ferramenta que reinicia o servidor automaticamente a cada alteração no código.
 * **Postman**: Ferramenta fundamental para realizar as requisições HTTP (GET, POST, PUT, DELETE) e validar as respostas da API durante o desenvolvimento.
 
