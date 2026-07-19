@@ -3,60 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/root.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/orbital_command_favicon.png">
     <title>Cadastro de Missões</title>
 </head>
 <body>
-    <nav class="menu">
-        <a href="index.html">Cadastrar</a>
-        <a href="list.html">Ver Missões</a>
-    </nav>
 
-    <div class="container">
-        <h1>Cadastro de Missões</h1>
-        <form id="missionForm">
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
+    <header class="topbar">
+        <div class="topbar-brand">
+            <span class="brand-mark">&#9670;</span> MISSIONS API
+        </div>
+        <nav class="menu">
+            <a href="index.html" class="active">Cadastrar</a>
+            <a href="list.html">Ver Missões</a>
+        </nav>
+        <div class="topbar-icons">
+            <span title="Notificações">&#128276;</span>
+            <span title="Configurações">&#9881;</span>
+            <span class="avatar" title="Conta">&#9679;</span>
+        </div>
+    </header>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-status">
+                <span class="status-label">STATUS NOMINAL</span>
+                <span class="status-value">MISSION ALPHA</span>
             </div>
-            
-            <div class="form-group">
-                <label for="crew">Tripulação:</label>
-                <input type="number" id="crew" name="crew" required>
+
+            <nav class="side-nav">
+                <a href="index.html" class="side-link active">
+                    <span class="side-icon">&#128225;</span> Cadastrar Missões
+                </a>
+                <a href="./list.html" class="side-link">
+                    <span class="side-icon">&#9638;</span> Painel Missões
+                </a>
+                <a href="#" class="side-link">
+                    <span class="side-icon">&#128101;</span> Equipe
+                </a>
+                <a href="#" class="side-link">
+                    <span class="side-icon">&#128230;</span> Gerenciamento de Carga útil
+                </a>
+                <a href="#" class="side-link">
+                    <span class="side-icon">&#128203;</span> Logs
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button type="button" class="btn-launch">INICIAR LANÇAMENTO</button>
+                <a href="#" class="side-footer-link">&#9432; Suporte</a>
+                <a href="#" class="side-footer-link">&#9000; Terminal</a>
             </div>
-            
-            <div class="form-group">
-                <label for="spacecraft">Espaçonave:</label>
-                <input type="text" id="spacecraft" name="spacecraft" required>
+        </aside>
+
+        <main class="container">
+            <h1>Cadastro de Missões</h1>
+            <p class="panel-status"><span class="status-dot"></span>PRONTO PARA A INSERÇÃO DE DADOS</p>
+
+            <form id="missionForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">Nome da Missão:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: Artemis IV" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="crew">Tripulação:</label>
+                        <input type="number" id="crew" name="crew" placeholder="Ex: 4" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="spacecraft">Espaçonave:</label>
+                        <input type="text" id="spacecraft" name="spacecraft" placeholder="Ex: Falcon Heavy" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="durations">Duração:</label>
+                        <input type="text" id="durations" name="durations" placeholder="Ex: 10 dias" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="destinations">Destinos:</label>
+                    <textarea id="destinations" name="destinations" placeholder="Liste as coordenadas ou corpos celestes..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="">Selecione um status</option>
+                        <option value="planejada">Planejada</option>
+                        <option value="em andamento">Em Andamento</option>
+                        <option value="concluída">Concluída</option>
+                        <option value="cancelada">Cancelada</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">&#9654; Confirmar Registro</button>
+                    <button type="reset" class="btn-ghost">Limpar</button>
+                </div>
+            </form>
+
+            <div id="infoMessage"></div>
+
+            <div class="panel-footer">
+                <span>ENCRYPTED CHANNEL 7A</span>
+                <span>v.2.4.8</span>
             </div>
-            
-            <div class="form-group">
-                <label for="destinations">Destinos:</label>
-                <textarea id="destinations" name="destinations" required></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="status">Status:</label>
-                <select id="status" name="status" required>
-                    <option value="">Selecione um status</option>
-                    <option value="planejada">Planejada</option>
-                    <option value="em andamento">Em Andamento</option>
-                    <option value="concluída">Concluída</option>
-                    <option value="cancelada">Cancelada</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="durations">Duração:</label>
-                <input type="text" id="durations" name="durations" placeholder="Ex: 10 dias" required>
-            </div>
-            
-            <button type="submit">Cadastrar Missão</button>
-        </form>
-        <div id="infoMessage"></div>
+        </main>
+
     </div>
-    <script type = "module" src="js/api.js"></script>
-    <script type = "module" src="js/ui.js"></script>
-    <script type = "module" src="js/main.js"></script>
+
+    <script type="module" src="js/api.js"></script>
+    <script type="module" src="js/ui.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

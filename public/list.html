@@ -3,83 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href="./css/styleList.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/root.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/styleList.css">
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/orbital_command_favicon.png">
     <title>Lista de Missões</title>
 </head>
 <body>
-    <nav class="menu">
-        <a href="index.html">Cadastrar</a>
-        <a href="list.html">Ver Missões</a>
-    </nav>
 
-    <div class="container">
-        <h1>Missões Cadastradas</h1>
-
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Trip.</th>
-                        <th>Espaçonave</th>
-                        <th>Destinos</th>
-                        <th>Status</th>
-                        <th>Duração</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody id="missionsBody">
-                    <tr>
-                        <td colspan="6" style="text-align:center; padding: 20px;">Carregando...</td>
-                    </tr>
-                </tbody>
-            </table>
+    <header class="topbar">
+        <div class="topbar-brand">
+            <span class="brand-mark">&#9670;</span> MISSIONS API
         </div>
-
-        <div class="edit-panel hidden" id="editPanel">
-            <h2>Editar Missão</h2>
-            <form id="editForm">
-                <div class="form-group">
-                    <label for="editNome">Nome</label>
-                    <input type="text" id="editNome" required>
-                </div>
-                <div class="form-group">
-                    <label for="editCrew">Tripulação</label>
-                    <input type="number" id="editCrew" required>
-                </div>
-                <div class="form-group">
-                    <label for="editSpacecraft">Espaçonave</label>
-                    <input type="text" id="editSpacecraft" required>
-                </div>
-                <div class="form-group">
-                    <label for="editDestinations">Destinos</label>
-                    <textarea id="editDestinations" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="editStatus">Status</label>
-                    <select id="editStatus" required>
-                        <option value="">Selecione um status</option>
-                        <option value="planejada">Planejada</option>
-                        <option value="em andamento">Em Andamento</option>
-                        <option value="concluída">Concluída</option>
-                        <option value="cancelada">Cancelada</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="editDurations">Duração</label>
-                    <input type="text" id="editDurations" placeholder="Ex: 10 dias" required>
-                </div>
-                <div class="actions">
-                    <button class="button-small edit" type="submit">Salvar</button>
-                    <button class="button-small" type="button" id="cancelEdit">Cancelar</button>
-                </div>
-                <div class="info" id="editInfo"></div>
-            </form>
+        <nav class="menu">
+            <a href="index.html">Cadastrar</a>
+            <a href="list.html" class="active">Ver Missões</a>
+        </nav>
+        <div class="topbar-icons">
+            <span title="Notificações">&#128276;</span>
+            <span title="Configurações">&#9881;</span>
+            <span class="avatar" title="Conta">&#9679;</span>
         </div>
+    </header>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+            <div class="sidebar-status">
+                <span class="status-label">STATUS NOMINAL</span>
+                <span class="status-value">MISSION ALPHA</span>
+            </div>
+
+            <nav class="side-nav">
+                <a href="index.html" class="side-link">
+                    <span class="side-icon">&#128225;</span> Cadastrar Missões
+                </a>
+                <a href="list.html" class="side-link active">
+                    <span class="side-icon">&#9638;</span> Painel Missões
+                </a>
+                <a href="#" class="side-link">
+                    <span class="side-icon">&#128101;</span> Equipe
+                </a>
+                <a href="#" class="side-link">
+                    <span class="side-icon">&#128230;</span> Gerenciamento de Carga útil
+                </a>
+                <a href="#" class="side-link">
+                    <span class="side-icon">&#128203;</span> Logs
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button type="button" class="btn-launch">INICIAR LANÇAMENTO</button>
+                <a href="#" class="side-footer-link">&#9432; Suporte</a>
+                <a href="#" class="side-footer-link">&#9000; Terminal</a>
+            </div>
+        </aside>
+
+        <main class="container">
+            <h1>Missões Cadastradas</h1>
+            <p class="panel-status"><span class="status-dot"></span>MONITORANDO TODAS AS MISSÕES ATIVAS</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Trip.</th>
+                            <th>Espaçonave</th>
+                            <th>Destinos</th>
+                            <th>Status</th>
+                            <th>Duração</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="missionsBody">
+                        <tr>
+                            <td colspan="7" style="text-align:center; padding: 20px;">Carregando...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="edit-panel hidden" id="editPanel">
+                <h2>Editar Missão</h2>
+                <form id="editForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editNome">Nome</label>
+                            <input type="text" id="editNome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editCrew">Tripulação</label>
+                            <input type="number" id="editCrew" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editSpacecraft">Espaçonave</label>
+                            <input type="text" id="editSpacecraft" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editDurations">Duração</label>
+                            <input type="text" id="editDurations" placeholder="Ex: 10 dias" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editDestinations">Destinos</label>
+                        <textarea id="editDestinations" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editStatus">Status</label>
+                        <select id="editStatus" required>
+                            <option value="">Selecione um status</option>
+                            <option value="planejada">Planejada</option>
+                            <option value="em andamento">Em Andamento</option>
+                            <option value="concluída">Concluída</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                    </div>
+
+                    <div class="actions">
+                        <button class="button-small edit" type="submit">Salvar</button>
+                        <button class="button-small" type="button" id="cancelEdit">Cancelar</button>
+                    </div>
+                    <div class="info" id="editInfo"></div>
+                </form>
+            </div>
+        </main>
+
     </div>
 
-    <script type = "module" src="js/api.js"></script>
-    <script type = "module" src="js/ui.js"></script>
-    <script type = "module" src="js/main.js"></script>
+    <script type="module" src="js/api.js"></script>
+    <script type="module" src="js/ui.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>
