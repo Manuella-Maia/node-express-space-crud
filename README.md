@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./public/assets/imgsProject/capaProjeto.png" alt="Bolão Hexa 2026">
+</p>
+
 [HTML5__BADGE]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 
 [CSS3__BADGE]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
