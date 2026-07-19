@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Orbital Command — root tokens
+   ========================================================================== */
+:root {
+    --bg: #05070d;
+    --bg-panel: #0b111d;
+    --bg-panel-alt: #0f1626;
+    --bg-input: #0a0f1a;
+    --border: #1d2c42;
+    --border-bright: #2a3f5c;
+
+    --accent: #22e5ff;
+    --accent-dim: #17a8bf;
+    --accent-glow: rgba(34, 229, 255, 0.28);
+
+    --text: #c3cee2;
+    --text-dim: #63728c;
+    --text-bright: #f2f6fc;
+
+    --success: #2fe6a0;
+    --error: #ff5d75;
+
+    --font-display: "Chakra Petch", "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-mono);
+    color: var(--text);
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(circle at 18% 30%, rgba(34, 229, 255, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(120, 60, 230, 0.10) 0%, transparent 50%),
+        radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: auto, auto, 22px 22px;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
